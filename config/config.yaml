@@ -1,0 +1,31 @@
+artifacts_root: artifacts
+
+data_ingestion:
+  root_dir: artifacts/data_ingestion
+  data_url: https://raw.githubusercontent.com/NaVeen913/Text-Summarization/main/summarizer-data.zip
+  local_data_file: artifacts/data_ingestion/summarizer-data.zip
+  unzip_dir: artifacts/data_ingestion
+
+data_transformation:
+  root_dir: artifacts/data_transformation
+
+  # the CSVs are expected inside a folder created after unzip
+  train_path: artifacts/data_ingestion/summarizer-data/train.csv
+  val_path: artifacts/data_ingestion/summarizer-data/validation.csv
+  test_path: artifacts/data_ingestion/summarizer-data/test.csv
+
+  transformed_train_path: artifacts/data_transformation/train
+  transformed_val_path: artifacts/data_transformation/val
+  transformed_test_path: artifacts/data_transformation/test
+
+  tokenizer_name: google/pegasus-cnn_dailymail
+  max_input_length: 512
+  max_target_length: 128
+
+model_trainer:
+  root_dir: artifacts/model_trainer
+  model_ckpt: google/pegasus-cnn_dailymail
+  train_dataset_path: artifacts/data_transformation/train
+  val_dataset_path: artifacts/data_transformation/val
+  output_dir: artifacts/model_trainer/pegasus_finetuned
+

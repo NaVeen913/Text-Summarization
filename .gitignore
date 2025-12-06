@@ -1,2 +1,19 @@
 venv/
 artifacts/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual env
+venv/
+.env/
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs
+log/
+logs/
+*.log
